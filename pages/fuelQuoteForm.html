@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Quote Form</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <!-- change path when deployed or on local env -->
+            <a href="pages\fuleQuoteHistory.html">Fule Quote History</a>
+        </nav>
+    </header>
+    <h1>Fule Quote Form</h1>
+    <form>
+        <div>
+            <label for="gallons">Gallons Requested</label>
+            <input type="number" name="gallonsRequested" id="gallons" required>
+        </div>
+        <div>
+            <label for="address">Delivery Address</label>
+            <!-- inser Non-editable address, comes from client profile-->
+        </div>
+        <div>
+            <label for="deliveryDate">Delivery date</label>
+            <input type="date" name="deliveryDate" id="deliveryDate" required>
+        </div>
+        <div>
+            <label for="price">Suggested Price / Gallon</label>
+            <!-- display numeric non-editable, price will be calculated by Pricing Module - we are not building pricing module yet -->
+        </div>
+        <div>
+            <label for="total">Total Amount Due</label>
+            <!-- display numeric non-editable, calculated (gallons * price) -->
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
