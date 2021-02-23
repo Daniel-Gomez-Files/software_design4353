@@ -1,0 +1,19 @@
+#content {
+  position: relative;
+}
+#content img {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+.header {
+  background-color: #2b3e4f;
+  color: white;
+  font-size: xx-large;
+  margin: 50px;
+}
+
+.nonheader {
+  margin: 50px;
+}
