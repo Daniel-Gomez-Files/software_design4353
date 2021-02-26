@@ -19,14 +19,15 @@ body {
     height: 400px;
 }
 
-.login {
-    padding-top: 40px;
-    padding-left: 160px;
+.title {
+    padding-top: 20px;
+    padding-left: 120px;
     color: black;
     background: #C8102E;
+    border-bottom: #C8102E solid 20px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .uname {
@@ -81,10 +82,29 @@ body {
     font-size: 13px;
   }
 
+  .signup2 {
+    cursor: pointer;
+    color: black;
+    background: #C8102E;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 35%;
+    font-size: 13px;
+  }
+
   .forgot {
     color: black;
     padding-top: 15px;
     
+}
+
+.account {
+    padding-left: 10px;
+    font-weight: bold;
 }
 
 a {
