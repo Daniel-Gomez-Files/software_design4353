@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title> Profile Management Page </title>
+
+ <link rel="stylesheet" href="style.css">
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<!--<div class="col-m-10 p-5"></div>
+ <h1  class = "bg-primary">Profile Management</h1> -->
+<div class = "header">
+  <h1>Profile Management</h1>
+</div>
+
+<div class = "nonheader">
+ <h2> Hello there, welcome to the profile completion page. Please fill in the information required below </h2>
+ <br>
+ <form id="profMngForm"action="#">
+   <div>
+    <label for="name">Full Name: </label>
+    <input type="text" name="fullName" id="fullName" placeholder="Enter full name here" maxlength="50" required>
+   </div>
+  <br>
+  <div>
+    <label for="Address1">Address 1: </label>
+    <input type="text" name="address1" id="userAddress" placeholder="Enter Address 1 here" maxlength="100" required>
+  </div>
+  <br>
+  <div>
+    <label for="Address2">Address 2: </label>
+    <input type="text" name="address2" id="userAddress2" placeholder="Enter Address 1 here" maxlength="100">
+  </div>
+  <br>
+  <div>
+    <label for="City">City: </label>
+    <input type="text" name="userCity" id="userCity" placeholder="Enter City here" maxlength="100">
+  </div>
+  <br>
+  <div>
+    <label for="State">State: </label>
+    <select name="userState" id="userState">
+      <option value="State">TX</option>
+      <option value="State">CA</option>
+      <option value="State">NY</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="ZipCode">ZipCode: </label>
+    <input type="text" name="userZipcode" id="userZipcode" placeholder="Enter Zip Code here" minlength="5" maxlength="8">
+  </div>
+  <br>
+  <div class="form-submit">
+    <button type="submit" id="submitButton">submit</button>
+  </div>
+ </form>
+ </div>
+</div>
+ <div id = "content">
+  <img src="UHLogo.png" alt="UH Logo">
+ </div>
+ <a href="index.html" id="homePageLink">Back to home page</a>
+<script src="script.js"></script>
+</body>
+</html>
