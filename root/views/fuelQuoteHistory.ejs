@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="https://logodix.com/logo/1577263.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- change path when deployed or on local env -->
+    <link rel="stylesheet" href="/styles.css">
+    <title>Fule Quote History</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="https://logodix.com/logo/1577263.png" alt="UH">
+            <!-- change path when deployed or on local env -->
+            <a href="/fuelQuoteForm.ejs">Fuel Quote Form</a>
+        </nav>
+    </header>
+
+    <table>
+        <caption>
+            <h1>Fuel Quote History</h1>
+        </caption>
+        <thead>
+            <tr>
+                <th>Gallons Requested</th>
+                <th>Delivery Adrress</th>
+                <th>Delivery Date</th>
+                <th> <sup>Suggested Price</sup> / <sub>Gallon</sub></th>
+                <th>Total Amount Due</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(let it of hist) { %>
+                <tr>
+                    <% for(let itt of it) { %>
+                        <td>
+                            <%= itt %>
+                        </td>
+                        <% } %>
+                </tr>
+                <% } %>
+
+        </tbody>
+    </table>
+    <script src="/app.js"></script>
+</body>
+
+</html>
