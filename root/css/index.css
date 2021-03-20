@@ -10,6 +10,7 @@ body {
 }
 
 .main {
+    margin-top: 100px;
     background-color: #FFFFFF;
     width: 400px;
     height: 400px;
