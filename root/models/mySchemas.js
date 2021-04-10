@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        maxLength = 50
+        max: 50
     },
     
     password: {
@@ -32,19 +32,19 @@ const userSchema = new mongoose.Schema({
     userAddress1: {
         type: String,
         required: true,
-        maxLength = 100
+        max: 100
     },
 
     userAddress2: {
        type: String,
        required: false,
-       maxLength = 100
+       max: 100
     },
 
     userCity: {
         type: String,
         required: true,
-        maxLength = 100
+        max: 100
     },
 
     userState: {
@@ -56,8 +56,8 @@ const userSchema = new mongoose.Schema({
     userzipcode: {
         type: Number,
         required: true,
-        minLength = 5,
-        maxLength = 9
+        min: 5,
+        max: 9
     },
 
       hist: {
