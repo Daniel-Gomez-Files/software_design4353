@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
         enum: ['TX']
     },
 
-    userzipcode: {
+    userZipcode: {
         type: Number,
         required: true,
         min: 5,
