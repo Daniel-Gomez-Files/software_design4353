@@ -37,7 +37,7 @@ app.post('/index.ejs', async (req, res) => {
         }
         if (usr.length) {
             console.log('it worked');
-            res.redirect(`/fuelQuoteForm.ejs/${usr._id}`)
+            res.redirect(`/fuelQuoteForm.ejs/${usr[0]._id}`)
         } else {
             console.log('wrong credentials');
             res.render('index');
@@ -79,9 +79,9 @@ app.post('/registerPage.ejs', async (req, res) => {
 //
 app.get('/profMngment.ejs/:id', async (req, res) => {
     const { id } = req.params;
-    const usr = await User.findById(id)
-    console.log(usr);
-    res.render('profMngment', { usr })
+    const user = await User.findById(id)
+    console.log(user);
+    res.render('profMngment', { user })
 })
 ///
 ///
@@ -106,15 +106,9 @@ app.get('/fuelQuoteForm.ejs/:id', async (req, res) => {
     res.render('fuelQuoteForm', { user })
 })
 
-// CHANGE THIS!!!!!!!
-// CHANGE THIS!!!!!!!
-// CHANGE THIS!!!!!!!
-// CHANGE THIS!!!!!!!
+
 app.post('/fuelQuoteForm.ejs/:id', (req, res) => {
-    // const { gallonsRequested, deliveryDate, price, total } = req.body;
-    const quote = req.body;
-    person.push([fullName, address1, address2, userCity, userState, ZipCode])
-    res.redirect('/fuelQuoteForm.ejs')
+
 })
 
 app.patch('/fuelQuoteForm.ejs/:id', async (req, res) => {
@@ -134,6 +128,7 @@ app.patch('/fuelQuoteForm.ejs/:id', async (req, res) => {
 app.get('/fuelQuoteHistory.ejs/:id', async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id)
+    console.log(user)
     res.render('fuelQuoteHistory', { user })
 })
 
