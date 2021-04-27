@@ -17,19 +17,23 @@
         <nav>
             <img src="https://logodix.com/logo/1577263.png" alt="UH">
             <!-- change path when deployed or on local env -->
-            <a href="/fuelQuoteHistory.ejs">Fuel Quote History</a>
+            <div>
+                <a href="/fuelQuoteHistory.ejs/<%=user._id%>">Fuel Quote History</a>
+                <a href="/profMngment.ejs/<%=user._id%>">Manage Profile</a>
+            </div>
+
         </nav>
     </header>
 
-    <form action="fuelQuoteHistory.ejs" method="post">
+    <form action="?_method=PATCH" method="POST">
         <h1>Fuel Quote Form</h1>
         <div>
-            <label for="gallons">Gallons Requested</label>
-            <input type="number" name="gallonsRequested" id="gallons" min="0" required>
+            <label for="gallonsRequested">Gallons Requested</label>
+            <input type="number" name="gallonsRequested" id="gallonsRequested" min="0" required>
         </div>
         <div>
             <label for="address">Delivery Address</label>
-            <input type="text" name="address" id="address" value="<%=address%>" readonly>
+            <input type="text" name="address" id="address" value="<%=user.userAddress1%>" readonly>
             <!-- inser Non-editable address, comes from client profile-->
         </div>
         <div>
@@ -38,7 +42,8 @@
         </div>
         <div>
             <label for="price">Suggested Price / Gallon</label>
-            <input type="number" name="price" id="price" value="<%=sugestP%>" readonly>
+            <!-- replace value with %<=sugestP%> -->
+            <input type="number" name="price" id="price" value="12" readonly>
             <!-- display numeric non-editable, price will be calculated by Pricing Module - we are not building pricing module yet -->
         </div>
         <div>
