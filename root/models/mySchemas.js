@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        max: 50
+        maxlength: 50
     },
     
     password: {
@@ -32,19 +32,19 @@ const userSchema = new mongoose.Schema({
     userAddress1: {
         type: String,
         required: true,
-        max: 100
+        maxlength: 100
     },
 
     userAddress2: {
        type: String,
        required: false,
-       max: 100
+       maxlength: 100
     },
 
     userCity: {
         type: String,
         required: true,
-        max: 100
+        maxlength: 100
     },
 
     userState: {
@@ -53,11 +53,11 @@ const userSchema = new mongoose.Schema({
         enum: ['TX']
     },
 
-    userZipcode: {
+    userzipcode: {
         type: Number,
         required: true,
-        min: 5,
-        max: 9
+        minlength: 5,
+        maxlength: 9
     },
 
       hist: {
