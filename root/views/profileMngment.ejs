@@ -22,29 +22,45 @@
 
     <div class="nonheader">
         <h2> Hello there, welcome to the profile completion page. Please fill in the information required below </h2>
-        <br><!-- /?_method=PATCH -->
-        <form id="profMngForm" action="profMngment.ejs?_method=PATCH" action="POST">
+        <br><!-- /?_method=PATCH  ... for some reason in action i just put the method and not the dir-->
+        <form id="profMngForm" action="?_method=PATCH" method="POST">
             <div>
                 <label for="name">Full Name: </label>
-                <input type="text" name="fullName" id="fullName" placeholder="Enter full name here" maxlength="50"
-                    required>
+                <input type="text" name="fullName" id="fullName" <% if(user.fullName=='' ){ %>
+                placeholder="Enter full name here"
+                <% }else{ %>
+                    value="<%=user.fullName%>"
+                        <% } %>
+                            maxlength="50" required>
             </div>
             <br>
             <div>
                 <label for="userAddress1">Address 1: </label>
-                <input type="text" name="userAddress1" id="userAddress" placeholder="Enter Address 1 here"
-                    maxlength="100" required>
+                <input type="text" name="userAddress1" id="userAddress1" <% if(user.userAddress1=='' ){ %>
+                placeholder="Enter Address 1 here"
+                <% }else{ %>
+                    value="<%=user.userAddress1%>"
+                        <% } %>
+                            maxlength="100" required>
             </div>
             <br>
             <div>
                 <label for="userAddress2">Address 2: </label>
-                <input type="text" name="userAddress2" id="userAddress2" placeholder="Enter Address 1 here"
-                    maxlength="100">
+                <input type="text" name="userAddress2" id="userAddress2" <% if(user.userAddress2=='' ){ %>
+                placeholder="Enter Address 1 here"
+                <% }else{ %>
+                    value="<%=user.userAddress2%>"
+                        <% } %>
+                            maxlength="100">
             </div>
             <br>
             <div>
                 <label for="City">City: </label>
-                <input type="text" name="userCity" id="userCity" placeholder="Enter City here" maxlength="100">
+                <input type="text" name="userCity" id="userCity" <% if(user.userCity=='' ){ %>
+                placeholder="Enter City here"
+                <% }else{ %>
+                    value="<%=user.userCity%>"
+                        <% } %> maxlength="100">
             </div>
             <br>
             <div>
@@ -58,8 +74,12 @@
             <br>
             <div>
                 <label for="ZipCode">ZipCode: </label>
-                <input type="text" name="userZipcode" id="userZipcode" placeholder="Enter Zip Code here" minlength="5"
-                    maxlength="8">
+                <input type="text" name="userZipcode" id="userZipcode" <% if(user.userZipcode==null ){ %>
+                placeholder="Enter Zip Code here"
+                <% }else{ %>
+                    value="<%=user.userZipcode%>"
+                        <% } %> minlength="5"
+                            maxlength="8">
             </div>
             <br>
             <div class="form-submit">
@@ -71,7 +91,7 @@
     <div id="content">
         <img src="https://logodix.com/logo/1577263.png" alt="UH Logo">
     </div>
-    <a href="/index.ejs" id="homePageLink">Back to home page</a>
+    <a href="/fuelQuoteForm.ejs/<%=user._id%>" id="homePageLink">Back to home page</a>
     <!-- <script src="/script.js"></script> -->
 </body>
 
