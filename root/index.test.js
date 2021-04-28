@@ -1,5 +1,5 @@
 //const sum  = require('./index');
-const post  = require('./index');
+const app  = require('./index');
 const { deleteOne } = require('./models/mySchemas');
 
 /*test('adds 2 nums', () => {
@@ -12,13 +12,9 @@ test('get index page', async () => {
         await request(app).get('/index.ejs')
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
-
-
     }catch(err){
         console.log('Error')
-    
     }
-
 })
 
 test('posting of index', async () => {
@@ -31,11 +27,8 @@ test('posting of index', async () => {
         await request(app).post('/index.ejs').send(service)
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
-
-
     }catch(err){
         console.log('Error')
-    
     }
 });
 
@@ -45,13 +38,9 @@ test('get register page', async () => {
         await request(app).get('/registerPage.ejs')
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
-
-
     }catch(err){
         console.log('Error')
-    
     }
-
 })
 
 test('posting of register page', async () => {
@@ -63,11 +52,8 @@ test('posting of register page', async () => {
         await request(app).post('/registerPage.ejs').send(service)
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
-
-
     }catch(err){
         console.log('Error')
-    
     }
 });
 
@@ -77,13 +63,9 @@ test('get profile management page', async () => {
         await request(app).get('/profMngment.ejs')
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
-
-
     }catch(err){
         console.log('Error')
-    
     }
-
 })
 
 test('posting of profile management', async () => {
@@ -107,6 +89,49 @@ test('patch of profile management', async () => {
     try{
         const count = await Service.count();
         await request(app).patch('/profMngment.ejs').send(service)
+        const newCount = await Service.count()
+        expect(newCount).toBe(count + 1);
+
+
+    }catch(err){
+        console.log('Error')
+    
+    }
+});
+
+test('get fuel quote form', async () => {
+    try{
+        const count = await Service.count();
+        await request(app).get('/fuelQuoteForm.ejs')
+        const newCount = await Service.count()
+        expect(newCount).toBe(count + 1);
+    }catch(err){
+        console.log('Error')
+    }
+})
+
+test('posting of fuel quote form', async () => {
+    try{
+        const count = await Service.count();
+        await request(app).post('/fuelQuoteForm.ejs').send(service)
+        const newCount = await Service.count()
+        expect(newCount).toBe(count + 1);
+
+
+    }catch(err){
+        console.log('Error')
+    
+    }
+});
+
+test('patch of fuel quote form', async () => {
+    const data = {
+        id: 'sbaeza',
+        gallonsRequested: '25'
+    };
+    try{
+        const count = await Service.count();
+        await request(app).patch('/fuelQuoteForm.ejs').send(service)
         const newCount = await Service.count()
         expect(newCount).toBe(count + 1);
 
