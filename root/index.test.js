@@ -2,6 +2,7 @@ const UserModel = require('./models/mySchemas');
 const path = require('path');
 const app  = require('./index');
 const mongoose = require('mongoose');
+const request = require("supertest");
 
 test('get index page', async () => {
     try{
