@@ -43,14 +43,22 @@
         <div>
             <label for="price">Suggested Price / Gallon</label>
             <!-- replace value with %<=sugestP%> -->
-            <input type="number" name="price" id="price" value="12" readonly>
-            <!-- display numeric non-editable, price will be calculated by Pricing Module - we are not building pricing module yet -->
+            <% if(user.userState=='TX' ){lFactor=.02 }else{ lFactor=.04}%>
+                <% if(user.hist.length){hFactor=.01} %>
+                    <%if(user.gallonsRequested> 1000){gFactor = .02}else{gFactor = .03}%>
+                        <input type="number" name="price" id="price"
+                            value="<%= lFactor*ppFactor - hFactor*ppFactor + pFactor*ppFactor + gFactor*ppFactor + ppFactor;%>"
+                            readonly>
+                        <!-- display numeric non-editable, price will be calculated by Pricing Module - we are not building pricing module yet -->
         </div>
         <div>
             <label for="total">Total Amount Due</label>
-            <input type="number" name="total" id="total" value="1233" readonly>
+            <input type="number" name="total" id="total"
+                value="<%=((lFactor - hFactor + gFactor + pFactor) * ppFactor + ppFactor)*1000%>" readonly>
             <!-- display numeric non-editable, calculated (gallons * price) -->
         </div>
+
+        <button type="button" id="getQuote">Get Quote</button>
         <button>Submit</button>
     </form>
     <script src="/app.js"></script>
