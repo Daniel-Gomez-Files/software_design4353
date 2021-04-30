@@ -2,18 +2,21 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override')
+// const EventEmitter = require('events');
 const mongoose = require('mongoose')
 
 const User = require('./models/mySchemas');
 
 mongoose.connect('mongodb://localhost/fuelApp', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
+    .then((database) => {
         console.log("Mongo connections open")
+
     })
     .catch(err => {
         console.log("Mongo connection messing up ")
         console.log(err)
     })
+const db = mongoose.connection;
 mongoose.set('useFindAndModify', false);
 app.use(express.static(path.join(__dirname, 'css')))
 app.use(express.static(path.join(__dirname, 'img')))
@@ -103,7 +106,13 @@ app.patch('/profMngment.ejs/:id', async (req, res) => {
 app.get('/fuelQuoteForm.ejs/:id', async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id)
-    res.render('fuelQuoteForm', { user })
+    const ppFactor = 1.50;
+    let lFactor = 0;
+    let hFactor = 0;
+    let gFactor = 0;
+    const pFactor = 0.1;
+    let total
+    res.render('fuelQuoteForm', { user, ppFactor, lFactor, hFactor, gFactor, pFactor, total })
 })
 
 
@@ -135,6 +144,25 @@ app.get('/fuelQuoteHistory.ejs/:id', async (req, res) => {
 app.post('/fuelQuoteHistory.ejs', (req, res) => {
 
 })
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+// add a document to the DB collection recording the click event
+app.post('/clicked', (req, res) => {
+    console.log(req.params);
+    console.log('click added to db');
+    res.sendStatus(201);
+});
+
+// get the click data from the database
+app.get('/clicks', (req, res) => {
+    db.collection('clicks').find().toArray((err, result) => {
+        if (err) return console.log(err);
+        res.send(result);
+    });
+});
 
 //whenever the server starts this will print
 app.listen(3000, () => {
